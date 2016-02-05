@@ -73,7 +73,7 @@ iii. 學習 JSON
 
 -->
 讓我們開始吧!
-[進入第一章 →](docs/1-Good-Parts.md)<br>
+[進入第一章 →](docs/1-what-is-json.md)<br>
 
 
 <!-- {p:.pull-box} -->
@@ -81,12 +81,12 @@ iii. 學習 JSON
 ----
 <!-- {hr: style='display:none'} -->
 書籍資訊：<br>
-**JavaScript:優良部分** © 2015+, [Lindsay Bassett](https://github.com/lindsaybassett). <br>
+**JavaScript Object Notation 精要** © 2015+, [Lindsay Bassett](https://github.com/lindsaybassett). <br>
 
 <!-- {p: style='display:none'} -->
 
 ----
-作者：[Douglas Crockford](https://github.com/lindsaybassett)，翻譯：莊惠淳。<br>
+作者：[Lindsay Bassett](https://github.com/lindsaybassett)，翻譯：楊尊一。<br>
 網頁樣板：[docpress](https://github.com/docpress/docpress) ，讀書會紀錄：[多奇數位](http://www.miniasp.com) <br>有任何建議歡迎提出，感謝!
 
 <!-- {blockquote: style='display:none'} -->
