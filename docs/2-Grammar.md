@@ -76,6 +76,29 @@ Infinity 值代表大於 1.79769313.....e+308 的所有值。
 
 ## 字串
 
+字串可用單引號（'）或雙引號（"）圍起。
+
+\\(反斜線)則作為轉義（跳脫）字元，所有字元都屬16位元長度。  
+   **轉義字元**
+   * \\"  雙引號
+   * \\'  單引號
+   * \\\  反斜線
+   * \\/  斜線
+   * \\b  倒退
+   * \\f  換頁
+   * \\n  換行
+   * \\r  游標歸位
+   * \\t  tab
+   * \\u  4個十六進位數
+
+JavaScript 沒有 character 型別，若要表示字元，請維持字串裡只有一個字元即可。
+
+字串下有 length 特性   
+ex: "seven".lngth 為 5
+
+字串永不改變，可使用 "+" 運算子串連其他字串，將被視為相同字串。   
+ex: 'c'+'a'+'t' === 'cat'  \/\/結果為 true
+
 ## 敘述
 
   **var敘述**
@@ -111,8 +134,56 @@ Infinity 值代表大於 1.79769313.....e+308 的所有值。
    如果運算式為 false 迴圈即中斷。  
    [語法參考](http://www.w3schools.com/js/js_loop_while.asp)
   
-     
+   **for 敘述**  
+   透過三個選用子句而控制:
+     * 初始句：通常為迴圈的初始變數
+     * 條件句：是否達到完成標準，若省略則預設估算結果為 true
+     * 遞增句：遞增或遞減變數後，在執行條件句開始重複
+   
+   另一種形式 （for in） 列舉物件的特性，每輪迴圈均把物件的另一個特性名稱字串，指派給變數。
+   ```sh
+   for (myvar in obj){
+       if (obj.hasownProperty(myvar)){
+          ....
+       }
+   }
+   ```
+   [語法參考](http://www.w3schools.com/js/js_loop_for.asp)
+   
+   **do 敘述**  
+   區塊一定會至少執行一次。   
+   [語法參考](http://www.w3schools.com/js/js_loop_while.asp)
+   
+   **try 敘述** 
+   try 執行一個區塊，並捕捉任何區塊丟出的例外狀況，catch 子句定義了接收例外的變數。
+   ```sh
+     try {
+       adddlert("Welcome guest!");
+      }
+     catch(err) {
+       document.getElementById("demo").innerHTML = err.message;
+      }
+   ```
+   [語法參考](http://www.w3schools.com/js/js_errors.asp)
 
+
+   **throw 敘述**    
+   throw 敘述負責發出例外狀況，若 throw 在 try 區塊裡，控制權會交給 catch 子句。
+   
+   [語法參考](http://www.w3schools.com/js/js_errors.asp)
+   
+   
+   **return 敘述**    
+   return 敘述使得函式提早回傳，也可以指定回傳值，若未指定 return 裡的運算式，回傳值為 undefined。
+   
+   [語法參考](http://www.w3schools.com/jsref/jsref_return.asp)
+   
+   **break 敘述**    
+   能跳出迴圈或 switch 敘述。
+   
+   [語法參考](http://www.w3schools.com/js/js_break.asp)
+   
+   
 ## 運算式
 最簡單的運算式：實字值（一個字串或數字）、內建值（true、false、null、undefined、NaN、Infinity
 ）、new 後接呼叫運算式、delete 後接精確運算式、以（）圍起的運算式、皆有字首詞運算子的運算式。
