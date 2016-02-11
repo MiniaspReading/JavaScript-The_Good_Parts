@@ -32,7 +32,7 @@ var add = function (a,b){
   * apply 呼叫模式
   
 函式呼叫是用一對小括號，接在任何產生函式值得運算式後面。當引數量與參數量不相等時，不會產生執行的錯誤，多餘的會被忽略，不足的已 undefined 取代。引數值不會型別檢查，任何型別的值都能傳給參數。
- #### 方法呼叫
+#### 方法呼叫
  當函式儲存成物件的特性時，稱為**方法**，呼叫方法時，this 即與物件相連繫。如果呼叫的運算式包含精確式（. 點號運算子、陣列註標(索引Index)運算式），則呼叫時視同方法。
  
  ```sh
@@ -52,7 +52,7 @@ var add = function (a,b){
 方法可使用 this 存取物件，能從物件中擷取值，或是調整物件，this 對物件的繫結（binding）發生在*呼叫期間*。繫結發生時期較晚，讓使用 this 的函式能受到高度重複利用。
 利用 this 取的環境變數的方法稱**public method**。
 
- #### 函式呼叫
+#### 函式呼叫
  當函式不是物件的特性時，則像函式一般被呼叫
  ```sh
  var sum = add(3,4);    // sum = 7
@@ -70,7 +70,7 @@ var add = function (a,b){
  myObject.double();
  document.writeln(myObject.getValue());  // 6
  ```
-  #### 建構式呼叫
+#### 建構式呼叫
   Javascrip 是個原型繼承的語言，就是物件可以直接繼承其他物件的特性。這個語言不用類別。
   如果函式呼叫時加上字首詞 new ，建立的新物件將附有對函式的 prototype 成員值的隱藏聯結，而且** this 也將與新物件結合**。
   字首詞 new 也改變了 return 行為，後面會提到。
@@ -90,7 +90,7 @@ var add = function (a,b){
   document.writeln(myQuo.get_status());  //  confused
   ```
   與字首詞 new 合用的函式，稱為**建構式**（consrtuctor）。這種風格的建構式並部建議使用，後面有更好的替代方案。
-  #### apply 呼叫
+#### apply 呼叫
   因為 JavaScript 是個物件導向語言，函式下可以有方法。
   
   apply 方法讓我們建構一個引數陣列，用於呼叫函式，也能讓我們使用 this 的值。   
