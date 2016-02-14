@@ -316,25 +316,141 @@ fade(document.body);
 對 sent_request_asynchronously 函式傳送一個函式參數，該函式參數將於接收到回應時被呼叫。
 
 ## 模組
-我們可以使用函式與 closure 製作模組，模組式個函式或物件，用於呈現一個介面，但隱藏起他的狀態與實作，藉由使用函式產生模組，幾乎可以消除全域變數的使用，限制了 JavaScript 最糟的功能之一。
+我們可以使用函式與 closure 製作模組，模組是個函式或物件，用於呈現一個介面，但隱藏起他的狀態與實作，藉由使用函式產生模組，幾乎可以消除全域變數的使用，限制了 JavaScript 最糟的功能之一。
 
-我們想為 String 擴充一個 deentityify 方法，他的功能是在字串中尋找 HTML tag 並用意義相同的字取代。
+我們想為 String 擴充一個 deentityify 方法，他的功能是在字串中尋找 HTML tag 並用意義相同的字取代。把物件定義在函式裡，但因每次呼叫函式時都需估算字串實字，造成執行期的負擔。最理想的方式，是把物件放入 closure，或在提供一個新增實體的方法。
 ```sh
 String.method('deentityify',function () { 
-    
+    //實體表，實體的名稱與字元的對照。
     var entity ={
         quot: '"',
         lt: '<',
         gt: '>'
     };
+    
+ // 回傳 deentityify 方法
  return function () {
+ 
+ // 底下為 deentityify 方法，尋找以 ＆ 開頭，以 ; 結尾的字串
+ // 如果其中字元儲存在實體表中，則以相等的字串取代實體。
      return this.replace(/&([^&;]+);/g,
      function (a, b) {
           var r = entity[b];
           return typeof r === 'string' ? r : a;
      }
+   );
  };
 }());
-
 ```
+注意最後一行，我們立即呼叫剛是用 （）運算製造函式。此時的呼叫將建立並回傳變成 deentityify 的函式。
+```sh
+ document.writeln('&lt;&quot;&gt;'.deentityify()); // <''>
+```
+模組利用函式範圍與 closure ，建立繫結與 private 關係，本例中只有 deentityify 方法可以存取實體資料結構。
 
+常用的模式模式，一個『定義 private 變數與函式』的函式; 它可以建立取用 private 變數與函式的特許函式，而後把特許函式回傳或儲存於可存取的地方。使用模組模式，可以削減全域變數的使用，它推廣了資訊隱藏及其他良好的設計習慣。
+
+假設製作一個產生流水號的物件
+
+```sh
+var serial_maker = function (){
+  var prefix = '';
+  var seq = 0;
+  return {
+      set_prefix : function(p){
+          prefix = String(p);
+      },
+      set_seq : function(s){
+          seq = s;
+      },
+      gensym : function(){
+          var result = prefix + seq;
+          seq += 1;
+          return result;
+      }
+   };  
+ }();
+ 
+ var seqer = serial_maker();
+ seqer.set_prefix = 'Q';
+ seqer.set_seq = 1000;
+ var unique = seqer.gensym(); //字串 unique = "Q1000"
+```
+上例的方法未使用 this 或 that。結果則是不會外洩的 seqer，除了同樣獲得方法的允許，否則無法改變 prefix 或 seq。
+seqer 物件是可變得，所以方法雖可以取代，但仍然不會開放其祕密資料的存取。seqer 不過是函式的集合，這些函式則保證具有是用或調整祕密資料的特殊能力。
+
+我們把 seqer.gensym 傳給第三方函式，函式將能產生唯一字串，但無法改變 prefix 或 seq 。
+
+## cascade 
+有些方法沒有傳值。以設定改變物件狀態的方法為例，它門通常不回傳任何物件。如果讓這類方法以回傳thsi 代替 undefined ，即可開啟 cascade 。   
+cascade 可製造非常富有表達行的介面，它有助於控制把介面做得一次做太多事的傾向。
+## curry
+藉由結合函式與引數，而產生新的函式：
+```sh
+  var add1 = add.curry(1);
+  document.writeln(add1(6));  // 7
+```
+add1 這個函式，是由傳遞 1 給 add 的 curry 方法所建立的， add1 函式會把它的引數加 1。JavaScript 沒有 curry 方法，可藉由擴充其方法。
+## Memoization
+函式能利用物件以記憶前一次操作的結果，因次可以避免不不要的工作。這種最佳化稱為 memoization
+。JavaScript 的物件與陣列都非常利於這項最佳化
+```sh
+  var fibonacci = function(n){
+      return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+      };
+
+  for (var i = 0; i <= 10; i+=1)
+  {
+    document.writeln('<br> ' + i +':'+ fibonacci(i));
+  }
+  //0:0
+  //1:1
+  //2:1
+  //3:2
+  //4:3
+  //5:5
+  //6:8
+  //7:13
+  //8:21
+  //9:34
+  //10:55 
+  ```
+上例，有很多不必要的工作。fibonacci 函式被呼叫了 453 次。我們呼叫它11次，它自我呼叫了 442 次，以計算目前或許已經計算過得值。如果使用 memoize 這個函式，即可降低負荷量。
+
+我們把 momoized 的結果保存在 memo 的陣列中，這個陣列則可隱藏在 closure 中。當我們的函式被呼叫時，首先尋找是否已知結果，如果是，及回傳。
+```sh
+ var fibonacci = function(){
+     var memo = [0,1];
+     var fib = function(n){
+         var result = memo[n];
+         if(typeof result !== 'number'){
+            result = fib(n - 1) + fib(n - 2);
+            memo[n] = result;
+         }
+         return result;
+     };
+   return fib;
+ }();
+```
+回傳結果相同，但它現在只被呼叫 29 次。我們呼叫了 11 次，函式自我呼叫了 18 次。
+
+藉由製作函式，以協助製造 memoized 函式，我們可以把這項工作通用化。memoizer 函式將接受初始的 meno 陣列及 fundamental 函式。它回傳一個管理 memo 儲存的 shell 函式，它於需要時呼叫 fundamental 函式，我們傳送 shell 函式及其參數給 fundamental 函式。
+```sh
+  var memoizer = function (memo,fundamental){
+  var shell = function (n) {
+      var result = memo[n];
+      if (typeof result !== 'number'){
+          result = fundamental(shell,n);
+          memo[n] = result;
+      }  
+      return result;
+     };
+     return shell;
+  };
+```
+我們現在可以利用 memoizer 定義 fibonacci 函式，只需要提供初始的 memo 陣列與 fundamential 函式。
+```sh
+  var fibonacci = memoizer([0,1],function(shell , n){
+       return shell(n -1) + shell(n - 2);
+  });
+```
