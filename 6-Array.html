@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=a44c9e9d">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=2bcc4b59"></script>
+    <title>第六章：陣列</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-6-array">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/MiniaspReading/JavaScript-The_Good_Parts" data-title="MiniaspReading/JavaScript-The_Good_Parts" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="">&#x7B2C;&#x516D;&#x7AE0; &#x9663;&#x5217;</h1>
+<p>&#x9663;&#x5217;&#x662F;&#x8A18;&#x61B6;&#x9AD4;&#x7684;&#x4E00;&#x7A2E;&#x7DDA;&#x6027;&#x5206;&#x914D;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x7D44;&#x4EF6;&#x66F4;&#x64DA;&#x8A08;&#x7B97;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6574;&#x6578;&#xFF09;&#x800C;&#x5B58;&#x53D6;&#x3002;&#x9663;&#x5217;&#x53EF;&#x4EE5;&#x5F0F;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x7684;&#x8CC7;&#x6599;&#x7D50;&#x69CB;&#x3002;&#x4F46;&#x53EF;&#x60DC; JavaScript &#x6C92;&#x6709;&#x985E;&#x4F3C;&#x9663;&#x5217;&#x7684;&#x6771;&#x897F;&#x3002;
+JavaScript &#x63D0;&#x4F9B;&#x4E86;&#x985E;&#x4F3C;&#x9663;&#x5217;&#x6027;&#x683C;&#x7684;&#x7269;&#x4EF6;&#x3002;&#x5B83;&#x628A;&#x9663;&#x5217;&#x8A3B;&#x6A19;&#xFF08;&#x6216;&#x7A31;&#x7D22;&#x5F15;index&#xFF09;&#x8F49;&#x63DB;&#x6210;&#x5B57;&#x4E32;&#x3002;&#x6BD4;&#x5BE6;&#x969B;&#x7684;&#x9663;&#x5217;&#x6162;&#xFF0C;&#x4F46;&#x66F4;&#x65B9;&#x4FBF;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="">&#x9663;&#x5217;&#x5BE6;&#x5B57;</h2>
+<p>&#x9663;&#x5217;&#x5BE6;&#x5B57;&#x662F;&#x4E00;&#x5C0D;&#x65B9;&#x62EC;&#x865F;&#x570D;&#x8D77;&#x96F6;&#x5230;&#x591A;&#x500B;&#x503C;&#xFF0C;&#x503C;&#x4EE5;&#x9017;&#x865F;&#x5206;&#x9694;&#x3002;</p>
+<pre><code class="lang-sh">  var empty = [];
+  var numbers [
+      <span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,<span class="pl-s">&apos;two&apos;</span>
+      ];
+  
+  empty[1];   // undefined
+  numbers[1];  // <span class="pl-s">&apos;one&apos;</span>
+  
+  empty.length;  // 0
+  numbers.length; // 3
+</code></pre>
+<p>&#x4E0B;&#x5217;&#x70BA;&#x7269;&#x4EF6;&#x5BE6;&#x5B57;&#xFF1A;</p>
+<pre><code class="lang-sh"> var numbers_object = {
+     <span class="pl-s">&apos;0&apos;</span> : <span class="pl-s">&apos;zero&apos;</span>,
+     <span class="pl-s">&apos;1&apos;</span> : <span class="pl-s">&apos;one&apos;</span>,
+     <span class="pl-s">&apos;2&apos;</span> : <span class="pl-s">&apos;two&apos;</span>
+ };
+</code></pre>
+<p>numbers &#x7E7C;&#x627F;&#x81EA; Array.prototype ,&#x800C; numbers_object &#x537B;&#x7E7C;&#x627F;&#x81EA; Object.prototype&#xFF0C;&#x6240;&#x4EE5; numbers &#x6709;&#x8F03;&#x591A;&#x7684;&#x65B9;&#x6CD5;&#x8207;&#x795E;&#x79D8;&#x7684; length &#x7279;&#x6027;&#x3002;&#x4F46; numbers_object &#x5247;&#x6C92;&#x6709;&#x3002;<br>
+&#x5728;&#x591A;&#x6578;&#x7684;&#x8A9E;&#x8A00;&#x4E2D;&#xFF0C;&#x9663;&#x5217;&#x5143;&#x7D20;&#x5FC5;&#x9808;&#x70BA;&#x76F8;&#x540C;&#x7684;&#x578B;&#x5225;&#xFF0C; JavaScript &#x5247;&#x5141;&#x8A31;&#x9663;&#x5217;&#x4E2D;&#x5305;&#x542B;&#x5404;&#x7A2E;&#x578B;&#x5225;&#x7684;&#x6DF7;&#x5408;&#x7684;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-sh">  var misc = [
+      <span class="pl-s">&apos;string&apos;</span>,98.6,<span class="pl-c1">true</span>,null,undefined,
+      [<span class="pl-s">&apos;neested&apos;</span>,<span class="pl-s">&apos;array&apos;</span>],{Object:<span class="pl-c1">true</span>},NaN,
+      Infinity
+     ];
+  misc.length;    // 10
+</code></pre>
+<h2 id="length">length &#x7279;&#x6027;</h2>
+<p>&#x6BCF;&#x4E00;&#x500B;&#x9663;&#x5217;&#x90FD;&#x6709; length &#x7279;&#x6027;&#xFF0C;JavaScript &#x9663;&#x5217;&#x7684; length &#x4E26;&#x4E0D;&#x4EE3;&#x8868;&#x9663;&#x5217;&#x7684;&#x4E0A;&#x9650;&#xFF0C;&#x5982;&#x679C;&#x5132;&#x5B58;&#x7684;&#x5143;&#x7D20;&#x5927;&#x65BC;&#x76EE;&#x524D;&#x7684; length &#x5F97;&#x8A3B;&#x6A19;&#xFF0C;&#x5247; length &#x5C07;&#x589E;&#x52A0;&#x4EE5;&#x5305;&#x542B;&#x65B0;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4E0D;&#x6703;&#x51FA;&#x73FE;&#x5DF2;&#x9054;&#x9663;&#x5217;&#x4E0A;&#x9650;&#x7684;&#x932F;&#x8AA4;&#x3002;
+**length &#x7279;&#x6027;&#xFF0C;&#x662F;&#x9663;&#x5217;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x6574;&#x6578;&#x7279;&#x6027;&#x540D;&#x7A31;&#x52A0; 1 ** &#x4E0D;&#x4E00;&#x5B9A;&#x5F0F;&#x9663;&#x5217;&#x4E2D;&#x7684;&#x7279;&#x5B9A;&#x6578;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-sh">  var myArrat = [];
+  myArrat.length;  // 0
+  
+  myArrat[100000]  = <span class="pl-c1">true</span>;
+  myArrat.length;  // 100001
+  //myArrat &#x53EA;&#x5305;&#x542B;&#x4E00;&#x500B;&#x7279;&#x6027;
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x660E;&#x78BA;&#x8A2D;&#x5B9A; length&#xFF0C;&#x8A2D;&#x5B9A;&#x7684; length &#x6BD4;&#x9663;&#x5217;&#x5143;&#x7D20;&#x591A;&#xFF0C;&#x4E26;&#x4E0D;&#x6703;&#x5206;&#x914D;&#x8F03;&#x591A;&#x7684;&#x7A7A;&#x9593;&#x7D66;&#x9663;&#x5217;&#xFF0C;&#x53CD;&#x4E4B;&#xFF0C;&#x5247;&#x5C07;&#x88AB;&#x522A;&#x9664;&#x3002;</p>
+<pre><code class="lang-sh">  numbers.length = 2;
+  // [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>]
+</code></pre>
+<p>&#x65B0;&#x7684;&#x9663;&#x5217;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x85C9;&#x7531;&#x6307;&#x6D3E;&#x9663;&#x5217;&#x76EE;&#x524D;&#x7684; length &#x800C;&#x88AB;&#x9644;&#x52A0;&#x81F3;&#x9663;&#x5217;&#x5C3E;&#x7AEF;&#xFF1A;</p>
+<pre><code class="lang-sh">  numbers[numbers.length] = <span class="pl-s">&apos;shi&apos;</span>;
+  // [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,<span class="pl-s">&apos;shi&apos;</span>]
+  
+  // &#x4F7F;&#x7528; push &#x65B9;&#x6CD5;&#x66F4;&#x5BB9;&#x6613;&#x9054;&#x5230;&#x540C;&#x6A23;&#x6548;&#x679C;
+  numbers.push(<span class="pl-s">&apos;go&apos;</span>);
+   // [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,<span class="pl-s">&apos;shi&apos;</span>,<span class="pl-s">&apos;go&apos;</span>]
+</code></pre>
+<h2 id="">&#x522A;&#x9664;</h2>
+<p>&#x65E2;&#x7136; JavaScript &#x7684;&#x9663;&#x5217;&#x5176;&#x5BE6;&#x662F;&#x7269;&#x4EF6;&#xFF0C;delete &#x904B;&#x7B97;&#x5B50;&#x5373;&#x53EF;&#x7528;&#x65BC;&#x79FB;&#x9664;&#x9663;&#x5217;&#x88E1;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
+<pre><code class="lang-sh">  delete numbers[2];
+  // [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,undefined,<span class="pl-s">&apos;go&apos;</span>]
+  
+</code></pre>
+<p>&#x9019;&#x9EBC;&#x505A;&#x5C07;&#x5728;&#x9663;&#x5217;&#x88E1;&#x7559;&#x4E0B;&#x7834;&#x6D1E;&#x3002;&#x5E78;&#x597D; JavaScript &#x6709;&#x500B; splice &#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5C0D;&#x9663;&#x5217;&#x52D5;&#x624B;&#x8853;&#xFF0C;&#x522A;&#x9664;&#x67D0;&#x4E9B;&#x5143;&#x7D20;&#xFF0C;&#x4E26;&#x4EE5;&#x5176;&#x4ED6;&#x5143;&#x7D20;&#x4EE3;&#x66FF;&#x3002;<br>
+<a href="http://www.w3schools.com/jsref/jsref_splice.asp">splice</a> &#x7B2C;&#x4E00;&#x500B;&#x5F15;&#x6578;&#x662F;&#x9663;&#x5217;&#x88E1;&#x7684;&#x5E8F;&#x865F;&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x5F15;&#x6578;&#x662F;&#x6B32;&#x522A;&#x9664;&#x7684;&#x5143;&#x7D20;&#x6578;&#x91CF;&#x3002;</p>
+<pre><code class="lang-sh">  numbers.splice(2,1);
+ //  [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,<span class="pl-s">&apos;go&apos;</span>]
+</code></pre>
+<p>&#x82E5;&#x662F;&#x5F88;&#x5927;&#x7684;&#x9663;&#x5217;&#xFF0C;&#x9019;&#x9805;&#x5DE5;&#x4F5C;&#x53EF;&#x80FD;&#x8981;&#x82B1;&#x5F88;&#x4E00;&#x9EDE;&#x6642;&#x9593;&#x3002;</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="5-Inheritance.html"><span class="title">第五章：繼承</span></a></div>
+          <div class="right"><a href="helpers.html"><span class="label">Next: </span><span class="title">第七章：正規運算式</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="index.html" class="link title  link-index">JavaScript:優良部分 讀書紀錄</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts">第一章：優良部分</a>
+            </li>
+            <li class="menu-item -level-1"><a href="2-Grammar.html" class="link title  link-2-grammar">第二章：文法</a>
+            </li>
+            <li class="menu-item -level-1"><a href="3-Object.html" class="link title  link-3-object">第三章：物件</a>
+            </li>
+            <li class="menu-item -level-1"><a href="4-Function.html" class="link title  link-4-function">第四章：函式</a>
+            </li>
+            <li class="menu-item -level-1"><a href="5-Inheritance.html" class="link title  link-5-inheritance">第五章：繼承</a>
+            </li>
+            <li class="menu-item -level-1"><a href="6-Array.html" class="link title -active link-6-array">第六章：陣列</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">陣列實字</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#length" class="link title link-length">length 特性</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">刪除</a>
+            </li>
+            <li class="menu-item -level-1"><a href="helpers.html" class="link title  link-helpers">第七章：正規運算式</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-2">第八章：方法</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-3">第九章：風格</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-4">第十章：美的功能</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-5">附錄</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>

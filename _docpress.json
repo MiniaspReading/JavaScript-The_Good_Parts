@@ -266,6 +266,30 @@
       },
       {
         "title": "第六章：陣列",
+        "source": "docs/6-Array.md",
+        "expand": true,
+        "url": "6-Array.html",
+        "slug": "6-array",
+        "headings": [
+          {
+            "title": "陣列實字",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "length 特性",
+            "depth": 2,
+            "id": "length"
+          },
+          {
+            "title": "刪除",
+            "depth": 2,
+            "id": ""
+          }
+        ]
+      },
+      {
+        "title": "第七章：正規運算式",
         "source": "docs/helpers.md",
         "expand": true,
         "url": "helpers.html",
@@ -282,13 +306,6 @@
             "id": "helpers"
           }
         ]
-      },
-      {
-        "title": "第七章：正規運算式",
-        "source": "docs/helpers.md",
-        "expand": true,
-        "url": "helpers.html",
-        "slug": "helpers-2"
       },
       {
         "title": "第八章：方法",
@@ -561,10 +578,44 @@
         }
       ]
     },
+    "6-Array.html": {
+      "source": "docs/6-Array.md",
+      "title": "第六章：陣列",
+      "slug": "6-array",
+      "headings": [
+        {
+          "title": "陣列實字",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "length 特性",
+          "depth": 2,
+          "id": "length"
+        },
+        {
+          "title": "刪除",
+          "depth": 2,
+          "id": ""
+        }
+      ]
+    },
     "helpers.html": {
       "source": "docs/helpers.md",
       "title": "第七章：正規運算式",
-      "slug": "helpers-2"
+      "slug": "helpers",
+      "headings": [
+        {
+          "title": "Helpers 的命名",
+          "depth": 2,
+          "id": "helpers"
+        },
+        {
+          "title": "整理 helpers",
+          "depth": 2,
+          "id": "helpers"
+        }
+      ]
     }
   },
   "sources": {
@@ -574,10 +625,9 @@
     "docs/3-Object.md": "3-Object.html",
     "docs/4-Function.md": "4-Function.html",
     "docs/5-Inheritance.md": "5-Inheritance.html",
+    "docs/6-Array.md": "6-Array.html",
     "docs/helpers.md": "helpers.html",
-    "docs/README.md~": "README.md~",
     "docs/docpress.json": "docpress.json",
-    "docs/docpress.json~": "docpress.json~",
     "docs/images/component-elements.png": "images/component-elements.png",
     "docs/images/component-example.png": "images/component-example.png",
     "docs/images/component-modifiers.png": "images/component-modifiers.png",
