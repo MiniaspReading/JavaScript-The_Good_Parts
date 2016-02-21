@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=a44c9e9d">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="assets/script.js?t=2bcc4b59"></script>
+    <title>第三章：物件</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-3-object">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/MiniaspReading/JavaScript-The_Good_Parts" data-title="MiniaspReading/JavaScript-The_Good_Parts" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="">&#x7B2C;&#x4E09;&#x7AE0; &#x7269;&#x4EF6;</h1>
+<p>JavaScript &#x7684;&#x7C21;&#x55AE;&#x578B;&#x5225;&#xFF1A;&#x6578;&#x503C;&#x3001;&#x5B57;&#x4E32;&#x3001;boolean&#x3001;null&#x3001;undefined&#x3002;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x503C;&#x90FD;&#x662F;<strong>&#x7269;&#x4EF6;</strong>&#xFF08;object&#xFF09;&#x3002;
+&#x7C21;&#x55AE;&#x578B;&#x5225;&#x5177;&#x6709;&#x4ED6;&#x9580;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9019;&#x4E9B;&#x578B;&#x5225;<strong>&#x6C38;&#x9060;&#x4E0D;&#x6703;&#x6539;&#x8B8A;</strong>&#xFF0C;JavaScript &#x88E1;&#x7684;&#x7269;&#x4EF6;&#xFF0C;&#x662F;&#x53EF;&#x8B8A;&#x7570;&#x7684;&#x5B9A;&#x8ABF;&#x96C6;&#x5408;&#x3002;</p>
+<p>JavaScript &#x7684;&#x7269;&#x4EF6;&#x4E0D;&#x53D7;&#x985E;&#x5225;&#x675F;&#x7E1B;&#xFF0C;&#x7279;&#x6027;&#x540D;&#x7A31;&#x6216;&#x503C;&#x90FD;&#x6C92;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x7269;&#x4EF6;&#x4E5F;&#x80FD;&#x5305;&#x542B;&#x53E6;&#x4E00;&#x500B;&#x7269;&#x4EF6;&#x3002;</p>
+<p>JavaScript &#x5305;&#x542B;&#x539F;&#x578B;&#x806F;&#x7E6B;&#xFF08;prototype linkage&#xFF09;&#x529F;&#x80FD;&#xFF0C;&#x5141;&#x8A31;&#x7269;&#x4EF6;&#x7E7C;&#x627F;&#x5176;&#x4ED6;&#x7269;&#x4EF6;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x9019;&#x500B;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x6E1B;&#x5C11;&#x7269;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x7684;&#x9593;&#xFF0C;&#x4E5F;&#x80FD;&#x6E1B;&#x5C11;&#x8A18;&#x61B6;&#x9AD4;&#x7684;&#x6D88;&#x8017;&#x3002;</p>
+<h2 id="">&#x7269;&#x4EF6;&#x5BE6;&#x5B57;</h2>
+<p>&#x7269;&#x4EF6;&#x5BE6;&#x5B57;&#xFF08;object literal&#xFF09;&#xFF0C;&#x5EFA;&#x7ACB;&#x65B0;&#x7269;&#x4EF6;&#x503C;&#x5F97;&#x4FBF;&#x5229;&#x8A3B;&#x8A18;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-sh">var empty_object = {};
+
+var stooge = {
+    <span class="pl-s">&quot;first-name&quot;</span> : <span class="pl-s">&quot;Joe&quot;</span>,
+    <span class="pl-s">&quot;last-name&quot;</span> : <span class="pl-s">&quot;Howard&quot;</span>
+
+};
+</code></pre>
+<p>&#x7279;&#x6027;&#x540D;&#x7A31;&#x53EF;&#x70BA;&#x4EFB;&#x4F55;&#x5B57;&#x4E32;&#xFF0C;&#x5305;&#x62EC;&#x7A7A;&#x5B57;&#x4E32;&#xFF0C;&#x82E5;&#x540D;&#x7A31;&#x9069;&#x5408;&#x683C;&#x7684;&#x540D;&#x7A31;&#x4E14;&#x6C92;&#x4FDD;&#x7559;&#x5B57;&#xFF0C;&#x5247;&#x53EF;&#x4EE5;&#x9078;&#x64C7;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x5F15;&#x865F;&#x570D;&#x8D77;&#x3002;&#x540D;&#x7A31;/&#x503C;&#x4EE5;&#x9017;&#x865F;&#x9694;&#x958B;&#x3002;&#x53EF;&#x70BA;&#x5DE2;&#x72C0;&#x69CB;&#x9020;&#x3002;</p>
+<pre><code class="lang-sh">var flight = {
+    airline : <span class="pl-s">&quot;Oceanic&quot;</span>,
+    number : 815,
+    departure {
+         IATA : <span class="pl-s">&quot;SYD&quot;</span>,
+         time : <span class="pl-s">&quot;2015-09-23 10:42&quot;</span>,
+         city : <span class="pl-s">&quot;Sydney&quot;</span>
+    },
+    airline : {
+         IATA : <span class="pl-s">&quot;LAX&quot;</span>,
+         time : <span class="pl-s">&quot;2015-10-23 09:42&quot;</span>,
+         city : <span class="pl-s">&quot;Los Angeles&quot;</span>
+    }
+
+};
+</code></pre>
+<h2 id="">&#x64F7;&#x53D6;</h2>
+<p>&#x7528; [] &#x570D;&#x8D77;&#x4E00;&#x6BB5;&#x5B57;&#x4E32;&#x904B;&#x7B97;&#x5F0F;&#xFF0C;&#x5373;&#x53EF;&#x5F9E;&#x7269;&#x4EF6;&#x4E2D;&#x64F7;&#x53D6;&#x3002;&#x5982;&#x679C;&#x904B;&#x7B97;&#x5F0F;&#x662F;&#x500B;&#x5E38;&#x6578;&#xFF0C;&#x4E14;&#x9069;&#x5408;&#x683C;&#x7684; Javascript &#x4E14;&#x975E;&#x4FDD;&#x7559;&#x5B57;&#xFF0C;&#x5247;&#x53EF;&#x7528; &#x300E;. &#x8A3B;&#x8A18;&#x300F;&#x3002;</p>
+<pre><code class="lang-sh">stooge[<span class="pl-s">&quot;first-name&quot;</span>]    // <span class="pl-s">&quot;Joe&quot;</span>
+flight.departure.IATA   // <span class="pl-s">&quot;SYD&quot;</span>
+
+// &#x82E5;&#x70BA;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x5247;&#x6703;&#x7522;&#x751F; undefined &#x503C;&#x3002;
+stooge[<span class="pl-s">&quot;middle-name&quot;</span>]    // undefined
+flight.status            // undefined
+</code></pre>
+<p>|| &#x904B;&#x7B97;&#x5B50;&#x80FD;&#x7528;&#x65BC;&#x586B;&#x5165;&#x9810;&#x8A2D;&#x503C;</p>
+<pre><code class="lang-sh">var middle = stooge[<span class="pl-s">&quot;middle-name&quot;</span>] || <span class="pl-s">&quot;(none)&quot;</span>;
+var status = flight.status  || <span class="pl-s">&quot;unknown&quot;</span>;
+</code></pre>
+<p>&#x82E5;&#x5F9E; undefined &#x64F7;&#x53D6;&#x503C;&#xFF0C;&#x5247;&#x6703;&#x4E1F;&#x51FA; TypeError &#x4F8B;&#x5916;&#xFF0C;&#x4F46;&#x53EF;&#x7528; &amp;&amp; &#x904B;&#x7B97;&#x5B57;&#x9632;&#x885B;&#x3002;</p>
+<pre><code class="lang-sh">flight.equipment                             // undefined          
+flight.equipment.model                       // &#x4E1F;&#x51FA; <span class="pl-s">&quot;TypeError&quot;</span>
+flight.equipment &amp;&amp; flight.equipment.model   // undefined 
+</code></pre>
+<h2 id="">&#x66F4;&#x65B0;</h2>
+<p>&#x7269;&#x4EF6;&#x88E1;&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x900F;&#x904E;&#x6307;&#x6D3E;&#x800C;&#x66F4;&#x65B0;&#xFF0C;&#x82E5;&#x7269;&#x4EF6;&#x88E1;&#x9084;&#x6C92;&#x6709;&#x7279;&#x6027;&#x540D;&#x7A31;&#xFF0C;&#x5247;&#x6703;&#x589E;&#x52A0;&#x5230;&#x7269;&#x4EF6;&#x88E1;&#x3002;</p>
+<pre><code class="lang-sh">stooge[<span class="pl-s">&quot;first-name&quot;</span>] = <span class="pl-s">&quot;Shon&quot;</span>;    //&#x6307;&#x6D3E;&#x503C;
+stooge.nickname = <span class="pl-s">&quot;Shon&quot;</span>;
+flight.status &#xFF1D;<span class="pl-s">&apos;overdue&apos;</span>;        //&#x589E;&#x52A0;&#x65B0;&#x7684;&#x7279;&#x6027;&#x540D;&#x7A31;flight.status
+
+</code></pre>
+<h2 id="">&#x53C3;&#x8003;</h2>
+<p>&#x7269;&#x4EF6;&#x900F;&#x904E;<strong>&#x53C3;&#x8003;</strong>&#xFF08;reference&#xFF09;&#x800C;&#x88AB;&#x56DB;&#x8655;&#x50B3;&#x905E;&#x3002;&#x7269;&#x4EF6;&#x4E0D;&#x6703;&#x88AB;&#x8907;&#x88FD;&#xFF1A;(&#x7BC4;&#x4F8B;&#x662F;&#x8981;&#x63A5;&#x4E0A;&#x7684;&#x5594;&#xFF0C;&#x5426;&#x5247;&#x4E00;&#x5B9A;&#x6703;&#x932F;)</p>
+<pre><code class="lang-sh">var x = stooge;
+x.nickname = <span class="pl-s">&apos;Shon&apos;</span>;
+var nick = stooge.nickname;
+
+// x &#x548C; stooge &#x53C3;&#x8003;&#x76F8;&#x540C;&#x7684;&#x7269;&#x4EF6;
+// &#x6240;&#x4EE5; nick &#x662F; <span class="pl-s">&apos;Shon&apos;</span>
+
+</code></pre>
+<h2 id="">&#x539F;&#x578B;</h2>
+<p>&#x6BCF;&#x500B;&#x7269;&#x4EF6;&#x90FD;&#x806F;&#x7E6B;&#x5230;&#x4E00;&#x500B; prototype &#x7269;&#x4EF6;&#xFF0C;&#x7531;&#x6B64;&#x53EF;&#x7E7C;&#x627F;&#x7269;&#x4EF6;&#x3002;&#x5E95;&#x4E0B;&#x4F8B;&#x5B50;&#x5C07;&#x70BA; object &#x51FD;&#x5F0F;&#x589E;&#x52A0;&#x4E00;&#x500B; beget &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-sh"><span class="pl-k">if</span> (typeof object.beget !== <span class="pl-s">&apos;function&apos;</span>){
+   object.beget = <span class="pl-k">function</span> (o){
+       var F = <span class="hljs-function"><span class="pl-ent">function</span></span> () {};
+       F.prototype = o;
+       <span class="pl-c1">return</span> new F();
+   };
+}
+
+var another_stooge = object.beget(stooge);
+</code></pre>
+<p>&#x5C0D;&#x539F;&#x578B;&#x7684;&#x806F;&#x7E6B;&#xFF0C;&#x66F4;&#x65B0;&#x6642;&#x6C92;&#x6709;&#x6548;&#x7528;&#x3002;&#x7576;&#x6211;&#x5011;&#x6539;&#x8B8A;&#x7269;&#x4EF6;&#x6642;&#xFF0C;&#x5C0D;&#x7269;&#x4EF6;&#x7684;&#x539F;&#x578B;&#x672A;&#x53D7;&#x5230;&#x78B0;&#x89F8;&#xFF1A;</p>
+<pre><code class="lang-sh">another_stooge[<span class="pl-s">&apos;first-name&apos;</span>] = <span class="pl-s">&apos;Harry&apos;</span>;
+another_stooge[<span class="pl-s">&apos;middle-name&apos;</span>] = <span class="pl-s">&apos;Moses&apos;</span>;
+another_stooge.nickname = <span class="pl-s">&apos;Moe&apos;</span>;
+</code></pre>
+<p>&#x539F;&#x578B;&#x806F;&#x7E6B;&#x53EA;&#x7528;&#x65BC;&#x503C;&#x7684;&#x64F7;&#x53D6;&#xFF0C;&#x5982;&#x679C;&#x5C0D;&#x7269;&#x4EF6;&#x64F7;&#x53D6; prototype &#x503C;&#xFF0C;&#x800C;&#x4E14;&#x7269;&#x4EF6;&#x7F3A;&#x5C11;&#x8A72;&#x7279;&#x6027;&#xFF0C;JavaScript &#x6703;&#x5617;&#x8A66;<strong>&#x5F9E;&#x539F;&#x578B;&#x7269;&#x4EF6;</strong>&#x4E2D;&#x64F7;&#x53D6;&#x7279;&#x6027;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x7269;&#x4EF6;&#x9084;&#x662F;&#x7F3A;&#x5C11;&#x8A72;&#x7279;&#x6027;&#x540D;&#x7A31;&#xFF0C;&#x5247;&#x6703;&#x5C0E;&#x5411;&#x4ED6;&#x7684;&#x539F;&#x578B;&#xFF0C;<strong>&#x5C64;&#x5C64;&#x4E0A;&#x63A8;</strong>&#xFF0C;&#x76F4;&#x5230;&#x62B5;&#x9054; object.prototype&#x3002;
+&#x82E5;&#x9084;&#x662F;&#x6C92;&#x6709;&#x5247;&#x7D50;&#x679C;&#x70BA; undefined &#x503C;&#xFF0C;&#x9019;&#x6BB5;&#x904E;&#x7A0B;&#x53EB; <strong>delegation</strong>(&#x59D4;&#x8A17;)&#x3002;</p>
+<h2 id="">&#x53CD;&#x6620;&#xFF08;&#x53CD;&#x5C04;&#xFF09;</h2>
+<p>&#x5617;&#x8A66;&#x64F7;&#x53D6;&#x7279;&#x6027;&#x4E26;&#x6AA2;&#x67E5;&#x53D6;&#x5F97;&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x80FD;&#x6AA2;&#x8996;&#x7269;&#x4EF6;&#xFF0C;&#x540C;&#x6642;&#x5224;&#x65B7;&#x5176;&#x4E2D;&#x6709;&#x90A3;&#x4E9B;&#x7279;&#x6027;&#x3002;</p>
+<ul>
+<li>typeof &#x5224;&#x65B7;&#x7279;&#x6027;&#x578B;&#x5225;:<pre><code class="lang-sh">typeof flight.number      // <span class="pl-s">&apos;number&apos;</span>
+typeof flight.status      // <span class="pl-s">&apos;string&apos;</span>
+typeof flight.arrival     // <span class="pl-s">&apos;object&apos;</span> 
+typeof flight.manifest    // <span class="pl-s">&apos;undefined&apos;</span>
+
+// &#x7279;&#x5225;&#x6CE8;&#x610F;&#x5E95;&#x4E0B;&#x7684;&#x503C;&#x56DE;&#x50B3;&#x662F; functiuon 
+typeof flight.toString       // <span class="pl-s">&apos;function&apos;</span>
+typeof flight.constructor    // <span class="pl-s">&apos;function&apos;</span>
+
+</code></pre>
+</li>
+<li>hasOwnProperty &#x64C1;&#x6709;&#x6307;&#x5B9A;&#x7279;&#x6027;&#x56DE;&#x50B3;&#xFF0C;&#x82E5;&#x662F; &#x5247;&#x70BA; true&#xFF0C;<strong>&#x4E0D;&#x6703;&#x6AA2;&#x7D22;&#x539F;&#x578B;&#x934A;</strong>&#x3002;<pre><code class="lang-sh"> flight.hasOwnProperty(<span class="pl-s">&apos;number&apos;</span>)      // <span class="pl-c1">true</span>
+ flight.hasOwnProperty(<span class="pl-s">&apos;constructor&apos;</span>) // <span class="pl-c1">false</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="">&#x5217;&#x8209;</h2>
+<p>for in &#x6558;&#x8FF0;&#x53EF;&#x7528;&#x8FF4;&#x5708;&#x8655;&#x7406;&#x6240;&#x6709;&#x7269;&#x4EF6;&#x7684;&#x7279;&#x6027;&#x540D;&#x7A31;&#xFF0C;&#x5305;&#x62EC;&#x4F60;&#x6C92;&#x6709;&#x8208;&#x8DA3;&#x7684;&#x51FD;&#x5F0F;&#x7279;&#x6027;&#x3002;&#x4E14;&#x540D;&#x7A31;&#x9806;&#x5E8F;&#x6C92;&#x6709;&#x4FDD;&#x8B49;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x4FDD;&#x6301;&#x9806;&#x5E8F;&#x8ACB;&#x6539;&#x7528;&#x9663;&#x5217;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<h2 id="">&#x522A;&#x9664;</h2>
+<p>delete &#x904B;&#x7B97;&#x5B57;&#x53EF;&#x5F9E;&#x7269;&#x4EF6;&#x4E2D;&#x79FB;&#x9664;&#x7279;&#x6027;&#xFF0C;&#x4E0D;&#x6703;&#x5F71;&#x97FF;&#x539F;&#x578B;&#x806F;&#x7E6B;&#x88E1;&#x7684;&#x5176;&#x4ED6;&#x7269;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-sh">another_stooge.nickname    // <span class="pl-s">&apos;Moe&apos;</span>
+
+//&#x5F9E; another_stooge &#x88E1;&#x79FB;&#x9664; nickname
+delete another_stooge.nickname;
+
+//&#x986F;&#x793A;&#x4F86;&#x81EA;&#x539F;&#x578B;&#x7269;&#x4EF6;&#x7684; nickname
+another_stooge.nickname    // <span class="pl-s">&apos;Shon&apos;</span>
+
+</code></pre>
+<h2 id="">&#x6E1B;&#x5C11;&#x5168;&#x57DF;&#x8B8A;&#x6578;</h2>
+<p>JavaScript &#x5F88;&#x8F15;&#x6613;&#x5B9A;&#x7FA9;&#x4FDD;&#x5B58;&#x61C9;&#x7528;&#x7A0B;&#x5F0F;&#x6240;&#x6709;&#x8CC7;&#x7522;&#x7684;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x3002;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x524A;&#x5F31;&#x7684;&#x7A0B;&#x5F0F;&#x7684;&#x5F48;&#x6027;&#xFF0C;&#x61C9;&#x8A72;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x3002;</p>
+<ul>
+<li>&#x5EFA;&#x7ACB;&#x4E00;&#x500B;&#x552F;&#x4E00;&#x4E00;&#x500B;&#x5168;&#x57DF;&#x8B8A;&#x6578;<pre><code class="lang-sh">  var MYAPP = {};
+  
+  //&#x7136;&#x5F8C;&#x7528;&#x9019;&#x500B;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x4FDD;&#x5B58;&#x4F60;&#x7684;&#x61C9;&#x7528;&#x7A0B;&#x5F0F;
+  MYAPP.stooge = {
+        <span class="pl-s">&quot;first-name&quot;</span> : <span class="pl-s">&quot;Joe&quot;</span>,
+        <span class="pl-s">&quot;last-name&quot;</span> : <span class="pl-s">&quot;Howard&quot;</span>
+  }
+</code></pre>
+</li>
+</ul>
+<p>&#x5F8C;&#x9762;&#x6703;&#x8AC7;&#x5230;<strong>&#x9589;&#x5305;</strong>&#xFF08;closure&#xFF09;&#x6280;&#x5DE7;&#x4F86;&#x6709;&#x6548;&#x7684;&#x6E1B;&#x5C11;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x3002;</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="2-Grammar.html"><span class="title">第二章：文法</span></a></div>
+          <div class="right"><a href="4-Function.html"><span class="label">Next: </span><span class="title">第四章：函式</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="index.html" class="link title  link-index">JavaScript:優良部分 讀書紀錄</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts">第一章：優良部分</a>
+            </li>
+            <li class="menu-item -level-1"><a href="2-Grammar.html" class="link title  link-2-grammar">第二章：文法</a>
+            </li>
+            <li class="menu-item -level-1"><a href="3-Object.html" class="link title -active link-3-object">第三章：物件</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">物件實字</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">擷取</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">更新</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">參考</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">原型</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">反映（反射）</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">列舉</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">刪除</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#" class="link title link-">減少全域變數</a>
+            </li>
+            <li class="menu-item -level-1"><a href="4-Function.html" class="link title  link-4-function">第四章：函式</a>
+            </li>
+            <li class="menu-item -level-1"><a href="5-Inheritance.html" class="link title  link-5-inheritance">第五章：繼承</a>
+            </li>
+            <li class="menu-item -level-1"><a href="helpers.html" class="link title  link-helpers">第六章：陣列</a>
+            </li>
+            <li class="menu-item -level-1"><a href="helpers.html" class="link title  link-helpers-2">第七章：正規運算式</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-2">第八章：方法</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-3">第九章：風格</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-4">第十章：美的功能</a>
+            </li>
+            <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-5">附錄</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,587 @@
+{
+  "toc": {
+    "sections": [
+      {
+        "title": "JavaScript:優良部分 讀書紀錄",
+        "source": "README.md",
+        "url": "index.html",
+        "slug": "index",
+        "headings": [
+          {
+            "title": "i. 前言",
+            "depth": 2,
+            "id": "i."
+          },
+          {
+            "title": "ii. 閱讀對象",
+            "depth": 2,
+            "id": "ii."
+          },
+          {
+            "title": "iii. 學習 JSON",
+            "depth": 2,
+            "id": "iii.-json"
+          }
+        ]
+      },
+      {
+        "title": "第一章：優良部分",
+        "source": "docs/1-Good-Parts.md",
+        "expand": true,
+        "url": "1-Good-Parts.html",
+        "slug": "1-good-parts",
+        "headings": [
+          {
+            "title": "為什麼是 JavaScript ?",
+            "depth": 2,
+            "id": "javascript"
+          },
+          {
+            "title": "分析 JavaScript",
+            "depth": 2,
+            "id": "javascript"
+          }
+        ]
+      },
+      {
+        "title": "第二章：文法",
+        "source": "docs/2-Grammar.md",
+        "expand": true,
+        "url": "2-Grammar.html",
+        "slug": "2-grammar",
+        "headings": [
+          {
+            "title": "空格",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "名稱",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "數值",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "字串",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "敘述",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "運算式",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "實字",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "函式",
+            "depth": 2,
+            "id": ""
+          }
+        ]
+      },
+      {
+        "title": "第三章：物件",
+        "source": "docs/3-Object.md",
+        "expand": true,
+        "url": "3-Object.html",
+        "slug": "3-object",
+        "headings": [
+          {
+            "title": "物件實字",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "擷取",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "更新",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "參考",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "原型",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "反映（反射）",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "列舉",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "刪除",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "減少全域變數",
+            "depth": 2,
+            "id": ""
+          }
+        ]
+      },
+      {
+        "title": "第四章：函式",
+        "source": "docs/4-Function.md",
+        "expand": true,
+        "url": "4-Function.html",
+        "slug": "4-function",
+        "headings": [
+          {
+            "title": "函式物件",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "函式實字",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "呼叫",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "arguments 陣列",
+            "depth": 2,
+            "id": "arguments"
+          },
+          {
+            "title": "回傳",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "例外狀況",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "擴充型別",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "遞迴",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "範圍",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "closure",
+            "depth": 2,
+            "id": "closure"
+          },
+          {
+            "title": "回呼",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "模組",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "cascade",
+            "depth": 2,
+            "id": "cascade"
+          },
+          {
+            "title": "curry",
+            "depth": 2,
+            "id": "curry"
+          },
+          {
+            "title": "Memoization",
+            "depth": 2,
+            "id": "memoization"
+          }
+        ]
+      },
+      {
+        "title": "第五章：繼承",
+        "source": "docs/5-Inheritance.md",
+        "expand": true,
+        "url": "5-Inheritance.html",
+        "slug": "5-inheritance",
+        "headings": [
+          {
+            "title": "擬類別繼承模式",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "物件規格器繼承模式",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "原型繼承模式",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "函式繼承模式",
+            "depth": 2,
+            "id": ""
+          },
+          {
+            "title": "零件繼承模式",
+            "depth": 2,
+            "id": ""
+          }
+        ]
+      },
+      {
+        "title": "第六章：陣列",
+        "source": "docs/helpers.md",
+        "expand": true,
+        "url": "helpers.html",
+        "slug": "helpers",
+        "headings": [
+          {
+            "title": "Helpers 的命名",
+            "depth": 2,
+            "id": "helpers"
+          },
+          {
+            "title": "整理 helpers",
+            "depth": 2,
+            "id": "helpers"
+          }
+        ]
+      },
+      {
+        "title": "第七章：正規運算式",
+        "source": "docs/helpers.md",
+        "expand": true,
+        "url": "helpers.html",
+        "slug": "helpers-2"
+      },
+      {
+        "title": "第八章：方法",
+        "source": "docs/1-Good-Parts.md",
+        "expand": true,
+        "url": "1-Good-Parts.html",
+        "slug": "1-good-parts-2"
+      },
+      {
+        "title": "第九章：風格",
+        "source": "docs/1-Good-Parts.md",
+        "expand": true,
+        "url": "1-Good-Parts.html",
+        "slug": "1-good-parts-3"
+      },
+      {
+        "title": "第十章：美的功能",
+        "source": "docs/1-Good-Parts.md",
+        "expand": true,
+        "url": "1-Good-Parts.html",
+        "slug": "1-good-parts-4"
+      },
+      {
+        "title": "附錄",
+        "source": "docs/1-Good-Parts.md",
+        "expand": true,
+        "url": "1-Good-Parts.html",
+        "slug": "1-good-parts-5"
+      }
+    ]
+  },
+  "index": {
+    "index.html": {
+      "source": "README.md",
+      "title": "JavaScript:優良部分 讀書紀錄",
+      "slug": "index",
+      "headings": [
+        {
+          "title": "i. 前言",
+          "depth": 2,
+          "id": "i."
+        },
+        {
+          "title": "ii. 閱讀對象",
+          "depth": 2,
+          "id": "ii."
+        },
+        {
+          "title": "iii. 學習 JSON",
+          "depth": 2,
+          "id": "iii.-json"
+        }
+      ]
+    },
+    "1-Good-Parts.html": {
+      "source": "docs/1-Good-Parts.md",
+      "title": "附錄",
+      "slug": "1-good-parts-5"
+    },
+    "2-Grammar.html": {
+      "source": "docs/2-Grammar.md",
+      "title": "第二章：文法",
+      "slug": "2-grammar",
+      "headings": [
+        {
+          "title": "空格",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "名稱",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "數值",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "字串",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "敘述",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "運算式",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "實字",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "函式",
+          "depth": 2,
+          "id": ""
+        }
+      ]
+    },
+    "3-Object.html": {
+      "source": "docs/3-Object.md",
+      "title": "第三章：物件",
+      "slug": "3-object",
+      "headings": [
+        {
+          "title": "物件實字",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "擷取",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "更新",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "參考",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "原型",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "反映（反射）",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "列舉",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "刪除",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "減少全域變數",
+          "depth": 2,
+          "id": ""
+        }
+      ]
+    },
+    "4-Function.html": {
+      "source": "docs/4-Function.md",
+      "title": "第四章：函式",
+      "slug": "4-function",
+      "headings": [
+        {
+          "title": "函式物件",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "函式實字",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "呼叫",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "arguments 陣列",
+          "depth": 2,
+          "id": "arguments"
+        },
+        {
+          "title": "回傳",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "例外狀況",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "擴充型別",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "遞迴",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "範圍",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "closure",
+          "depth": 2,
+          "id": "closure"
+        },
+        {
+          "title": "回呼",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "模組",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "cascade",
+          "depth": 2,
+          "id": "cascade"
+        },
+        {
+          "title": "curry",
+          "depth": 2,
+          "id": "curry"
+        },
+        {
+          "title": "Memoization",
+          "depth": 2,
+          "id": "memoization"
+        }
+      ]
+    },
+    "5-Inheritance.html": {
+      "source": "docs/5-Inheritance.md",
+      "title": "第五章：繼承",
+      "slug": "5-inheritance",
+      "headings": [
+        {
+          "title": "擬類別繼承模式",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "物件規格器繼承模式",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "原型繼承模式",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "函式繼承模式",
+          "depth": 2,
+          "id": ""
+        },
+        {
+          "title": "零件繼承模式",
+          "depth": 2,
+          "id": ""
+        }
+      ]
+    },
+    "helpers.html": {
+      "source": "docs/helpers.md",
+      "title": "第七章：正規運算式",
+      "slug": "helpers-2"
+    }
+  },
+  "sources": {
+    "README.md": "index.html",
+    "docs/1-Good-Parts.md": "1-Good-Parts.html",
+    "docs/2-Grammar.md": "2-Grammar.html",
+    "docs/3-Object.md": "3-Object.html",
+    "docs/4-Function.md": "4-Function.html",
+    "docs/5-Inheritance.md": "5-Inheritance.html",
+    "docs/helpers.md": "helpers.html",
+    "docs/README.md~": "README.md~",
+    "docs/docpress.json": "docpress.json",
+    "docs/docpress.json~": "docpress.json~",
+    "docs/images/component-elements.png": "images/component-elements.png",
+    "docs/images/component-example.png": "images/component-example.png",
+    "docs/images/component-modifiers.png": "images/component-modifiers.png",
+    "docs/images/component-nesting.png": "images/component-nesting.png",
+    "docs/images/layouts.png": "images/layouts.png"
+  }
+}

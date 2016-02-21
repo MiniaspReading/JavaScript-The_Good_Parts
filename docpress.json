@@ -1,0 +1,11 @@
+{
+  "github": "MiniaspReading/JavaScript-The_Good_Parts",
+  "css": [
+    "http://ricostacruz.com/docpress-rsc/style.css"
+  ],
+  "markdown": {
+    "plugins": {
+      "decorate": {}
+    }
+  }
+}
