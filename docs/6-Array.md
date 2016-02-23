@@ -2,7 +2,7 @@
 陣列是記憶體的一種線性分配，其中的組件更據計算偏移量（整數）而存取。陣列可以式非常快速的資料結構。但可惜 JavaScript 沒有類似陣列的東西。
 JavaScript 提供了類似陣列性格的物件。它把陣列註標（或稱索引index）轉換成字串。比實際的陣列慢，但更方便使用。
 
-## 陣列實字
+## 6-1 陣列實字
 陣列實字是一對方括號圍起零到多個值，值以逗號分隔。
 ```sh
   var empty = [];
@@ -35,7 +35,7 @@ numbers 繼承自 Array.prototype ,而 numbers_object 卻繼承自 Object.protot
   misc.length;    // 10
 ```
 
-## length 特性
+## 6-2 length 特性
 每一個陣列都有 length 特性，JavaScript 陣列的 length 並不代表陣列的上限，如果儲存的元素大於目前的 length 得註標，則 length 將增加以包含新的元素，不會出現已達陣列上限的錯誤。
 **length 特性，是陣列中最大的整數特性名稱加 1 ** 不一定式陣列中的特定數量：
 ```sh
@@ -60,7 +60,7 @@ numbers 繼承自 Array.prototype ,而 numbers_object 卻繼承自 Object.protot
   numbers.push('go');
    // ['zero','one','shi','go']
 ```
-## 刪除
+## 6-3 刪除
 既然 JavaScript 的陣列其實是物件，delete 運算子即可用於移除陣列裡的元素。
 ```sh
   delete numbers[2];

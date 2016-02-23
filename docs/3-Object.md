@@ -7,7 +7,7 @@ JavaScript 的物件不受類別束縛，特性名稱或值都沒有限制，物
 
 JavaScript 包含原型聯繫（prototype linkage）功能，允許物件繼承其他物件的特性，這個功能可以減少物件初始化的間，也能減少記憶體的消耗。
 
-## 物件實字
+## 3-1 物件實字
 
 物件實字（object literal），建立新物件值得便利註記方式。
 ```sh
@@ -38,7 +38,7 @@ var flight = {
 };
 ```
 
-## 擷取
+## 3-2 擷取
 
 用 [] 圍起一段字串運算式，即可從物件中擷取。如果運算式是個常數，且適合格的 Javascript 且非保留字，則可用 『. 註記』。
 ```sh
@@ -60,7 +60,7 @@ flight.equipment                             // undefined
 flight.equipment.model                       // 丟出 "TypeError"
 flight.equipment && flight.equipment.model   // undefined 
 ```
-## 更新
+## 3-3 更新
 
 物件裡的值，可以透過指派而更新，若物件裡還沒有特性名稱，則會增加到物件裡。
 ```sh
@@ -70,7 +70,7 @@ flight.status ＝'overdue';        //增加新的特性名稱flight.status
 
 ```
 
-## 參考
+## 3-4 參考
 物件透過**參考**（reference）而被四處傳遞。物件不會被複製：(範例是要接上的喔，否則一定會錯)
 ```sh
 var x = stooge;
@@ -82,7 +82,7 @@ var nick = stooge.nickname;
 
 ```
 
-## 原型
+## 3-5 原型
 每個物件都聯繫到一個 prototype 物件，由此可繼承物件。底下例子將為 object 函式增加一個 beget 方法。
 ```sh
 if (typeof object.beget !== 'function'){
@@ -105,7 +105,7 @@ another_stooge.nickname = 'Moe';
 原型聯繫只用於值的擷取，如果對物件擷取 prototype 值，而且物件缺少該特性，JavaScript 會嘗試**從原型物件**中擷取特性值，如果物件還是缺少該特性名稱，則會導向他的原型，**層層上推**，直到抵達 object.prototype。
 若還是沒有則結果為 undefined 值，這段過程叫 **delegation**(委託)。
 
-## 反映（反射）
+## 3-6 反映（反射）
 
 嘗試擷取特性並檢查取得的值，就能檢視物件，同時判斷其中有那些特性。
 
@@ -126,11 +126,11 @@ another_stooge.nickname = 'Moe';
         flight.hasOwnProperty('number')      // true
         flight.hasOwnProperty('constructor') // false
        ```
-## 列舉
+## 3-7 列舉
 
 for in 敘述可用迴圈處理所有物件的特性名稱，包括你沒有興趣的函式特性。且名稱順序沒有保證，如果想要保持順序請改用陣列的方式。
 
-## 刪除
+## 3-8 刪除
 
 delete 運算字可從物件中移除特性，不會影響原型聯繫裡的其他物件。
 ```sh
@@ -144,7 +144,7 @@ another_stooge.nickname    // 'Shon'
 
 ```      
 
-## 減少全域變數
+## 3-9 減少全域變數
 JavaScript 很輕易定義保存應用程式所有資產的全域變數。全域變數削弱的程式的彈性，應該避免使用。
 
   * 建立一個唯一一個全域變數
