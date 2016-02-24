@@ -74,3 +74,125 @@ numbers 繼承自 Array.prototype ,而 numbers_object 卻繼承自 Object.protot
  //  ['zero','one','go']
 ```
 若是很大的陣列，這項工作可能要花很一點時間。
+## 6-4 列舉
+因為 JavaScript 的陣列其實式物件，即可使用 for in 敘述處裡陣列中所有特性。但 for in 無法保證順序，大多數陣列程式都期待產出順序排列的元素。還有從原型鍊裡挖出非預期性的問題。
+方便好用的 for 敘述能避免上述問題。 for 敘述由三個子句控制：
+ * 第一個子句初始化迴圈
+ * 第二個子句是 while 條件據
+ * 第三個子句負責遞增
+ 
+ ```sh
+ var i ;
+ for (i = 0; i < myArrat.length; i += 1)
+ {
+   document.writeln(myArrat[i]);
+ }
+ ```
+## 6-5 困惑之處
+JavaScript 沒有更好的陣列與物件區分機制，可以透過自訂 is_array 函式，可繞過此向缺點：
+```sh
+ var is_array = function(value){
+    return value && 
+           typeof value === 'object' && 
+           value.constructor === Array;
+ };
+```
+很可惜，自訂函式無法辨識在不同視窗或框架下建構證列，需加點修改。
+```sh
+ var is_array = function(value){
+    return value && 
+           typeof value === 'object' &&
+           typeof value.length === 'number' &&
+           typeof value.length === 'function' &&
+           !(value.propertyIsEnumerable('length'));
+ };
+ 
+```
+首先，判斷使否為 true，這個動作用於拒絕 null 和其他視為 false 的值，第二個輪詢，是否為 object ，這個輪詢遇到物件、陣列和 null 都會是 true 。第三輪詢值是否有 length 特性，
+且為數值，陣列本項必須為 true ，但物件通常不會。最後詢問 length 特性是否可列舉（length 特性是否由 for in 迴圈產生?）。陣列遇到此項檢測均為 false 。
+## 方法
+JavaScript 提供一組對陣列行動的方法，這些方法就是儲存在 Array.prototype 裡的函式。如同第三章 Object.prototype 如何擴充。假如我們要擴充 array 方法，對陣列做計算：
+```sh
+Array.method('reduce',function (f,value) {
+     var i;
+     for (i = 0; i < this.value.length; i += 1)
+     {
+        value = f(this[i],value);
+     }
+     return value;
+});
+
+```
+對 Array.propotype 增加函式後，每個陣列都繼承了新增的方法。
+```sh
+ var data = [4,8,15,16,23,42];
+ 
+ var add = function(a,b){
+          return a + b;
+ };
+ 
+ var mult = function(a,b){
+          return a * b;
+ };
+ 
+ // 呼叫擴充方法 reduce 傳入 add 函式
+ var sum = data.reduce(add,0); // sum = 108
+ 
+ // 呼叫擴充方法 reduce 傳入 mult 函式
+ var sum = data.reduce(mult,1); // sum = 7418880
+   
+```
+因為陣列事實上是個物件，可以把方法加入單一陣列：
+```sh
+ data.total = function () {
+      return this.reduce(add,0);
+ };
+ 
+ total = data.total();  // 108 
+```
+既然字串 'total' 不是個整數，對陣列新增 total 特性不會改變他的 length 。由此產生的物件，將繼承陣列的值於方法，但部會擁有 length 特性。
+## 陣列維度
+JavaScript 陣列通常不會初始化，如果你用 [] 要求新陣列，它將是空的，如果取用不存在的元素，將會獲得 undefined 值。擴充修正這項疏忽：
+```sh
+ Array.dim = function (dimension, initial){
+     var a = [],i;
+     for (i = 0; i < dimension; i += 1){
+        a[i] = initial;
+     }
+     return a;
+ }
+ 
+ // 製作包含十個 0 的陣列
+ var myArrat = Array.dim(10,0);
+ 
+```
+想製作二維陣列，或陣列中的陣列時，必須自己建立，我們可以擴充：
+```sh
+ Array.matrix = function (m,n, initial){
+     var a, i, j,mat = [];
+     for (i = 0; i < m; i += 1){
+        a = [];
+        for (j = 0; j < n; j += 1){
+          a[j] = 0;
+        }
+        mat[i= a;
+     }
+     return mat;
+ }
+ // 製作一個 4 * 4 填滿 0 的矩陣
+ var myMatrix = Array.matrix(4,4,0);
+ document.writeln(myMatrix[3][3]);  // 0
+```
+製作完全相同矩陣方法
+```sh
+ Array.identity = function (n){
+    var i , mat = Array.matrix(n,n,0);
+     for (i = 0; i < n; i += 1){
+        mat[i][i] = 1;
+     }
+     return mat;
+ };
+ 
+ myMatrix = Array.identity(4);
+ document.writeln(myMatrix[3][3]);  // 1
+```
