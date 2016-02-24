@@ -285,27 +285,30 @@
             "title": "6-3 刪除",
             "depth": 2,
             "id": "6-3"
+          },
+          {
+            "title": "6-4 列舉",
+            "depth": 2,
+            "id": "6-4"
+          },
+          {
+            "title": "6-5 困惑之處",
+            "depth": 2,
+            "id": "6-5"
+          },
+          {
+            "title": "6-7 陣列維度",
+            "depth": 2,
+            "id": "6-7"
           }
         ]
       },
       {
         "title": "第七章：正規運算式",
-        "source": "docs/helpers.md",
+        "source": "docs/7-Regexp.md",
         "expand": true,
-        "url": "helpers.html",
-        "slug": "helpers",
-        "headings": [
-          {
-            "title": "Helpers 的命名",
-            "depth": 2,
-            "id": "helpers"
-          },
-          {
-            "title": "整理 helpers",
-            "depth": 2,
-            "id": "helpers"
-          }
-        ]
+        "url": "7-Regexp.html",
+        "slug": "7-regexp"
       },
       {
         "title": "第八章：方法",
@@ -597,25 +600,28 @@
           "title": "6-3 刪除",
           "depth": 2,
           "id": "6-3"
+        },
+        {
+          "title": "6-4 列舉",
+          "depth": 2,
+          "id": "6-4"
+        },
+        {
+          "title": "6-5 困惑之處",
+          "depth": 2,
+          "id": "6-5"
+        },
+        {
+          "title": "6-7 陣列維度",
+          "depth": 2,
+          "id": "6-7"
         }
       ]
     },
-    "helpers.html": {
-      "source": "docs/helpers.md",
+    "7-Regexp.html": {
+      "source": "docs/7-Regexp.md",
       "title": "第七章：正規運算式",
-      "slug": "helpers",
-      "headings": [
-        {
-          "title": "Helpers 的命名",
-          "depth": 2,
-          "id": "helpers"
-        },
-        {
-          "title": "整理 helpers",
-          "depth": 2,
-          "id": "helpers"
-        }
-      ]
+      "slug": "7-regexp"
     }
   },
   "sources": {
@@ -626,7 +632,7 @@
     "docs/4-Function.md": "4-Function.html",
     "docs/5-Inheritance.md": "5-Inheritance.html",
     "docs/6-Array.md": "6-Array.html",
-    "docs/helpers.md": "helpers.html",
+    "docs/7-Regexp.md": "7-Regexp.html",
     "docs/docpress.json": "docpress.json",
     "docs/images/component-elements.png": "images/component-elements.png",
     "docs/images/component-example.png": "images/component-example.png",

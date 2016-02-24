@@ -83,11 +83,125 @@ JavaScript &#x63D0;&#x4F9B;&#x4E86;&#x985E;&#x4F3C;&#x9663;&#x5217;&#x6027;&#x68
  //  [<span class="pl-s">&apos;zero&apos;</span>,<span class="pl-s">&apos;one&apos;</span>,<span class="pl-s">&apos;go&apos;</span>]
 </code></pre>
 <p>&#x82E5;&#x662F;&#x5F88;&#x5927;&#x7684;&#x9663;&#x5217;&#xFF0C;&#x9019;&#x9805;&#x5DE5;&#x4F5C;&#x53EF;&#x80FD;&#x8981;&#x82B1;&#x5F88;&#x4E00;&#x9EDE;&#x6642;&#x9593;&#x3002;</p>
+<h2 id="6-4">6-4 &#x5217;&#x8209;</h2>
+<p>&#x56E0;&#x70BA; JavaScript &#x7684;&#x9663;&#x5217;&#x5176;&#x5BE6;&#x5F0F;&#x7269;&#x4EF6;&#xFF0C;&#x5373;&#x53EF;&#x4F7F;&#x7528; for in &#x6558;&#x8FF0;&#x8655;&#x88E1;&#x9663;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x7279;&#x6027;&#x3002;&#x4F46; for in &#x7121;&#x6CD5;&#x4FDD;&#x8B49;&#x9806;&#x5E8F;&#xFF0C;&#x5927;&#x591A;&#x6578;&#x9663;&#x5217;&#x7A0B;&#x5F0F;&#x90FD;&#x671F;&#x5F85;&#x7522;&#x51FA;&#x9806;&#x5E8F;&#x6392;&#x5217;&#x7684;&#x5143;&#x7D20;&#x3002;&#x9084;&#x6709;&#x5F9E;&#x539F;&#x578B;&#x934A;&#x88E1;&#x6316;&#x51FA;&#x975E;&#x9810;&#x671F;&#x6027;&#x7684;&#x554F;&#x984C;&#x3002;
+&#x65B9;&#x4FBF;&#x597D;&#x7528;&#x7684; for &#x6558;&#x8FF0;&#x80FD;&#x907F;&#x514D;&#x4E0A;&#x8FF0;&#x554F;&#x984C;&#x3002; for &#x6558;&#x8FF0;&#x7531;&#x4E09;&#x500B;&#x5B50;&#x53E5;&#x63A7;&#x5236;&#xFF1A;</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x500B;&#x5B50;&#x53E5;&#x521D;&#x59CB;&#x5316;&#x8FF4;&#x5708;</li>
+<li>&#x7B2C;&#x4E8C;&#x500B;&#x5B50;&#x53E5;&#x662F; while &#x689D;&#x4EF6;&#x64DA;</li>
+<li>&#x7B2C;&#x4E09;&#x500B;&#x5B50;&#x53E5;&#x8CA0;&#x8CAC;&#x905E;&#x589E;</li>
+</ul>
+<pre><code class="lang-sh">var i ;
+<span class="pl-k">for</span> (i = 0; i &lt; myArrat.length; i += 1)
+{
+  document.writeln(myArrat[i]);
+}
+</code></pre>
+<h2 id="6-5">6-5 &#x56F0;&#x60D1;&#x4E4B;&#x8655;</h2>
+<p>JavaScript &#x6C92;&#x6709;&#x66F4;&#x597D;&#x7684;&#x9663;&#x5217;&#x8207;&#x7269;&#x4EF6;&#x5340;&#x5206;&#x6A5F;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x900F;&#x904E;&#x81EA;&#x8A02; is_array &#x51FD;&#x5F0F;&#xFF0C;&#x53EF;&#x7E5E;&#x904E;&#x6B64;&#x5411;&#x7F3A;&#x9EDE;&#xFF1A;</p>
+<pre><code class="lang-sh"> var is_array = <span class="pl-k">function</span>(value){
+    <span class="pl-c1">return</span> value &amp;&amp; 
+           typeof value === <span class="pl-s">&apos;object&apos;</span> &amp;&amp; 
+           value.constructor === Array;
+ };
+</code></pre>
+<p>&#x5F88;&#x53EF;&#x60DC;&#xFF0C;&#x81EA;&#x8A02;&#x51FD;&#x5F0F;&#x7121;&#x6CD5;&#x8FA8;&#x8B58;&#x5728;&#x4E0D;&#x540C;&#x8996;&#x7A97;&#x6216;&#x6846;&#x67B6;&#x4E0B;&#x5EFA;&#x69CB;&#x8B49;&#x5217;&#xFF0C;&#x9700;&#x52A0;&#x9EDE;&#x4FEE;&#x6539;&#x3002;</p>
+<pre><code class="lang-sh"> var is_array = <span class="pl-k">function</span>(value){
+    <span class="pl-c1">return</span> value &amp;&amp; 
+           typeof value === <span class="pl-s">&apos;object&apos;</span> &amp;&amp;
+           typeof value.length === <span class="pl-s">&apos;number&apos;</span> &amp;&amp;
+           typeof value.length === <span class="pl-s">&apos;function&apos;</span> &amp;&amp;
+           !(value.propertyIsEnumerable(<span class="pl-s">&apos;length&apos;</span>));
+ };
+ 
+</code></pre>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5224;&#x65B7;&#x4F7F;&#x5426;&#x70BA; true&#xFF0C;&#x9019;&#x500B;&#x52D5;&#x4F5C;&#x7528;&#x65BC;&#x62D2;&#x7D55; null &#x548C;&#x5176;&#x4ED6;&#x8996;&#x70BA; false &#x7684;&#x503C;&#xFF0C;&#x7B2C;&#x4E8C;&#x500B;&#x8F2A;&#x8A62;&#xFF0C;&#x662F;&#x5426;&#x70BA; object &#xFF0C;&#x9019;&#x500B;&#x8F2A;&#x8A62;&#x9047;&#x5230;&#x7269;&#x4EF6;&#x3001;&#x9663;&#x5217;&#x548C; null &#x90FD;&#x6703;&#x662F; true &#x3002;&#x7B2C;&#x4E09;&#x8F2A;&#x8A62;&#x503C;&#x662F;&#x5426;&#x6709; length &#x7279;&#x6027;&#xFF0C;
+&#x4E14;&#x70BA;&#x6578;&#x503C;&#xFF0C;&#x9663;&#x5217;&#x672C;&#x9805;&#x5FC5;&#x9808;&#x70BA; true &#xFF0C;&#x4F46;&#x7269;&#x4EF6;&#x901A;&#x5E38;&#x4E0D;&#x6703;&#x3002;&#x6700;&#x5F8C;&#x8A62;&#x554F; length &#x7279;&#x6027;&#x662F;&#x5426;&#x53EF;&#x5217;&#x8209;&#xFF08;length &#x7279;&#x6027;&#x662F;&#x5426;&#x7531; for in &#x8FF4;&#x5708;&#x7522;&#x751F;?&#xFF09;&#x3002;&#x9663;&#x5217;&#x9047;&#x5230;&#x6B64;&#x9805;&#x6AA2;&#x6E2C;&#x5747;&#x70BA; false &#x3002;</p>
+<h2 id="6-6">6-6 &#x65B9;&#x6CD5;</h2>
+<p>JavaScript &#x63D0;&#x4F9B;&#x4E00;&#x7D44;&#x5C0D;&#x9663;&#x5217;&#x884C;&#x52D5;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9019;&#x4E9B;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5132;&#x5B58;&#x5728; Array.prototype &#x88E1;&#x7684;&#x51FD;&#x5F0F;&#x3002;&#x5982;&#x540C;&#x7B2C;&#x4E09;&#x7AE0; Object.prototype &#x5982;&#x4F55;&#x64F4;&#x5145;&#x3002;&#x5047;&#x5982;&#x6211;&#x5011;&#x8981;&#x64F4;&#x5145; array &#x65B9;&#x6CD5;&#xFF0C;&#x5C0D;&#x9663;&#x5217;&#x505A;&#x8A08;&#x7B97;&#xFF1A;</p>
+<pre><code class="lang-sh">Array.method(<span class="pl-s">&apos;reduce&apos;</span>,<span class="pl-k">function</span> (f,value) {
+     var i;
+     <span class="pl-k">for</span> (i = 0; i &lt; this.value.length; i += 1)
+     {
+        value = f(this[i],value);
+     }
+     <span class="pl-c1">return</span> value;
+});
+
+</code></pre>
+<p>&#x5C0D; Array.propotype &#x589E;&#x52A0;&#x51FD;&#x5F0F;&#x5F8C;&#xFF0C;&#x6BCF;&#x500B;&#x9663;&#x5217;&#x90FD;&#x7E7C;&#x627F;&#x4E86;&#x65B0;&#x589E;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-sh"> var data = [4,8,15,16,23,42];
+ 
+ var add = <span class="pl-k">function</span>(a,b){
+          <span class="pl-c1">return</span> a + b;
+ };
+ 
+ var mult = <span class="pl-k">function</span>(a,b){
+          <span class="pl-c1">return</span> a * b;
+ };
+ 
+ // &#x547C;&#x53EB;&#x64F4;&#x5145;&#x65B9;&#x6CD5; reduce &#x50B3;&#x5165; add &#x51FD;&#x5F0F;
+ var sum = data.reduce(add,0); // sum = 108
+ 
+ // &#x547C;&#x53EB;&#x64F4;&#x5145;&#x65B9;&#x6CD5; reduce &#x50B3;&#x5165; mult &#x51FD;&#x5F0F;
+ var sum = data.reduce(mult,1); // sum = 7418880
+   
+</code></pre>
+<p>&#x56E0;&#x70BA;&#x9663;&#x5217;&#x4E8B;&#x5BE6;&#x4E0A;&#x662F;&#x500B;&#x7269;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x65B9;&#x6CD5;&#x52A0;&#x5165;&#x55AE;&#x4E00;&#x9663;&#x5217;&#xFF1A;</p>
+<pre><code class="lang-sh"> data.total = <span class="hljs-function"><span class="pl-ent">function</span></span> () {
+      <span class="pl-c1">return</span> this.reduce(add,0);
+ };
+ 
+ total = data.total();  // 108 
+</code></pre>
+<p>&#x65E2;&#x7136;&#x5B57;&#x4E32; &apos;total&apos; &#x4E0D;&#x662F;&#x500B;&#x6574;&#x6578;&#xFF0C;&#x5C0D;&#x9663;&#x5217;&#x65B0;&#x589E; total &#x7279;&#x6027;&#x4E0D;&#x6703;&#x6539;&#x8B8A;&#x4ED6;&#x7684; length &#x3002;&#x7531;&#x6B64;&#x7522;&#x751F;&#x7684;&#x7269;&#x4EF6;&#xFF0C;&#x5C07;&#x7E7C;&#x627F;&#x9663;&#x5217;&#x7684;&#x503C;&#x65BC;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x90E8;&#x6703;&#x64C1;&#x6709; length &#x7279;&#x6027;&#x3002;</p>
+<h2 id="6-7">6-7 &#x9663;&#x5217;&#x7DAD;&#x5EA6;</h2>
+<p>JavaScript &#x9663;&#x5217;&#x901A;&#x5E38;&#x4E0D;&#x6703;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7528; [] &#x8981;&#x6C42;&#x65B0;&#x9663;&#x5217;&#xFF0C;&#x5B83;&#x5C07;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x53D6;&#x7528;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5C07;&#x6703;&#x7372;&#x5F97; undefined &#x503C;&#x3002;&#x64F4;&#x5145;&#x4FEE;&#x6B63;&#x9019;&#x9805;&#x758F;&#x5FFD;&#xFF1A;</p>
+<pre><code class="lang-sh"> Array.dim = <span class="pl-k">function</span> (dimension, initial){
+     var a = [],i;
+     <span class="pl-k">for</span> (i = 0; i &lt; dimension; i += 1){
+        a[i] = initial;
+     }
+     <span class="pl-c1">return</span> a;
+ }
+ 
+ // &#x88FD;&#x4F5C;&#x5305;&#x542B;&#x5341;&#x500B; 0 &#x7684;&#x9663;&#x5217;
+ var myArrat = Array.dim(10,0);
+ 
+</code></pre>
+<p>&#x60F3;&#x88FD;&#x4F5C;&#x4E8C;&#x7DAD;&#x9663;&#x5217;&#xFF0C;&#x6216;&#x9663;&#x5217;&#x4E2D;&#x7684;&#x9663;&#x5217;&#x6642;&#xFF0C;&#x5FC5;&#x9808;&#x81EA;&#x5DF1;&#x5EFA;&#x7ACB;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x64F4;&#x5145;&#xFF1A;</p>
+<pre><code class="lang-sh"> Array.matrix = <span class="pl-k">function</span> (m,n, initial){
+     var a, i, j,mat = [];
+     <span class="pl-k">for</span> (i = 0; i &lt; m; i += 1){
+        a = [];
+        <span class="pl-k">for</span> (j = 0; j &lt; n; j += 1){
+          a[j] = 0;
+        }
+        mat[i= a;
+     }
+     <span class="pl-c1">return</span> mat;
+ }
+ // &#x88FD;&#x4F5C;&#x4E00;&#x500B; 4 * 4 &#x586B;&#x6EFF; 0 &#x7684;&#x77E9;&#x9663;
+ var myMatrix = Array.matrix(4,4,0);
+ document.writeln(myMatrix[3][3]);  // 0
+</code></pre>
+<p>&#x88FD;&#x4F5C;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x77E9;&#x9663;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-sh"> Array.identity = <span class="pl-k">function</span> (n){
+    var i , mat = Array.matrix(n,n,0);
+     <span class="pl-k">for</span> (i = 0; i &lt; n; i += 1){
+        mat[i][i] = 1;
+     }
+     <span class="pl-c1">return</span> mat;
+ };
+ 
+ myMatrix = Array.identity(4);
+ document.writeln(myMatrix[3][3]);  // 1
+</code></pre>
 
         </div>
         <div class="footer-nav">
           <div class="left"><a href="5-Inheritance.html"><span class="title">第五章：繼承</span></a></div>
-          <div class="right"><a href="helpers.html"><span class="label">Next: </span><span class="title">第七章：正規運算式</span></a></div>
+          <div class="right"><a href="7-Regexp.html"><span class="label">Next: </span><span class="title">第七章：正規運算式</span></a></div>
         </div>
       </div>
       <div class="menu toc-menu">
@@ -113,7 +227,13 @@ JavaScript &#x63D0;&#x4F9B;&#x4E86;&#x985E;&#x4F3C;&#x9663;&#x5217;&#x6027;&#x68
             </li>
             <li class="menu-item -level-1"><a href="#6-3" class="link title link-6-3">6-3 刪除</a>
             </li>
-            <li class="menu-item -level-1"><a href="helpers.html" class="link title  link-helpers">第七章：正規運算式</a>
+            <li class="menu-item -level-1"><a href="#6-4" class="link title link-6-4">6-4 列舉</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#6-5" class="link title link-6-5">6-5 困惑之處</a>
+            </li>
+            <li class="menu-item -level-1"><a href="#6-7" class="link title link-6-7">6-7 陣列維度</a>
+            </li>
+            <li class="menu-item -level-1"><a href="7-Regexp.html" class="link title  link-7-regexp">第七章：正規運算式</a>
             </li>
             <li class="menu-item -level-1"><a href="1-Good-Parts.html" class="link title  link-1-good-parts-2">第八章：方法</a>
             </li>
