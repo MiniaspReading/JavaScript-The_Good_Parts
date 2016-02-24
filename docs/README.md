@@ -7,7 +7,7 @@
 - **[第四章：函式](4-Function.md)**
 - **[第五章：繼承](5-Inheritance.md)**
 - **[第六章：陣列](6-Array.md)**
-- **[第七章：正規運算式](helpers.md)**
+- **[第七章：正規運算式](7-Regexp.md)**
 - **[第八章：方法](1-Good-Parts.md)**
 - **[第九章：風格](1-Good-Parts.md)**
 - **[第十章：美的功能](1-Good-Parts.md)**

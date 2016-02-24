@@ -110,7 +110,7 @@ JavaScript 沒有更好的陣列與物件區分機制，可以透過自訂 is_ar
 ```
 首先，判斷使否為 true，這個動作用於拒絕 null 和其他視為 false 的值，第二個輪詢，是否為 object ，這個輪詢遇到物件、陣列和 null 都會是 true 。第三輪詢值是否有 length 特性，
 且為數值，陣列本項必須為 true ，但物件通常不會。最後詢問 length 特性是否可列舉（length 特性是否由 for in 迴圈產生?）。陣列遇到此項檢測均為 false 。
-## 方法
+## 6-6 方法
 JavaScript 提供一組對陣列行動的方法，這些方法就是儲存在 Array.prototype 裡的函式。如同第三章 Object.prototype 如何擴充。假如我們要擴充 array 方法，對陣列做計算：
 ```sh
 Array.method('reduce',function (f,value) {
@@ -151,7 +151,7 @@ Array.method('reduce',function (f,value) {
  total = data.total();  // 108 
 ```
 既然字串 'total' 不是個整數，對陣列新增 total 特性不會改變他的 length 。由此產生的物件，將繼承陣列的值於方法，但部會擁有 length 特性。
-## 陣列維度
+## 6-7 陣列維度
 JavaScript 陣列通常不會初始化，如果你用 [] 要求新陣列，它將是空的，如果取用不存在的元素，將會獲得 undefined 值。擴充修正這項疏忽：
 ```sh
  Array.dim = function (dimension, initial){
