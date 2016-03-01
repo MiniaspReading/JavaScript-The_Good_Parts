@@ -308,7 +308,14 @@
         "source": "docs/7-Regexp.md",
         "expand": true,
         "url": "7-Regexp.html",
-        "slug": "7-regexp"
+        "slug": "7-regexp",
+        "headings": [
+          {
+            "title": "7-1 建構",
+            "depth": 2,
+            "id": "7-1"
+          }
+        ]
       },
       {
         "title": "第八章：方法",
@@ -621,7 +628,14 @@
     "7-Regexp.html": {
       "source": "docs/7-Regexp.md",
       "title": "第七章：正規運算式",
-      "slug": "7-regexp"
+      "slug": "7-regexp",
+      "headings": [
+        {
+          "title": "7-1 建構",
+          "depth": 2,
+          "id": "7-1"
+        }
+      ]
     }
   },
   "sources": {
